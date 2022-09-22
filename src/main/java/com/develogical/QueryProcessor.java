@@ -32,6 +32,22 @@ public class QueryProcessor {
 
             return sum;
         }
+
+
+        if (query.toLowerCase().contains("multip")){
+
+            query.replaceAll("%20", "");
+            query.replaceAll("[^0-9]+", " ");
+            List<Int> x = Arrays.asList(query.trim().split(" "));
+
+            int sum = 1;
+            for(int i = 0; i < x.size(); i++){
+                sum = sum * x.get(i);
+            }
+
+            return sum;
+        }
+
         return "";
     }
 }
