@@ -1,5 +1,7 @@
 package com.develogical;
 
+import java.util.Arrays;
+
 public class QueryProcessor {
 
     public String process(String query) {
@@ -8,8 +10,22 @@ public class QueryProcessor {
                     "English poet, playwright, and actor, widely regarded as the greatest " +
                     "writer in the English language and the world's pre-eminent dramatist.";
         }
-        if (query.toLowerCase().contains("20%plus%20")){
-            return "40";
+        if (query.toLowerCase().contains("larger")){
+
+            query.replaceAll("%20", "");
+            query.replaceAll("[^0-9]+", " ");
+            List<Int> x = Arrays.asList(query.trim().split(" "));
+
+            return x.max();
+        }
+
+        if (query.toLowerCase().contains("plus")){
+
+            query.replaceAll("%20", "");
+            query.replaceAll("[^0-9]+", " ");
+            List<Int> x = Arrays.asList(query.trim().split(" "));
+
+            return x.sum();
         }
         return "";
     }
