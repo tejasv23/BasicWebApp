@@ -25,7 +25,12 @@ public class QueryProcessor {
             query.replaceAll("[^0-9]+", " ");
             List<Int> x = Arrays.asList(query.trim().split(" "));
 
-            return x.sum();
+            int sum = 0;
+            for(int i = 0; i < x.size(); i++){
+                sum += x.get(i);
+            }
+
+            return sum;
         }
         return "";
     }
